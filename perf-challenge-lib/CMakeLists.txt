@@ -4,7 +4,8 @@ set(precompiled_header
     "src/precompiled/stdafx.h")
 
 set(root_files
-    "src/Empty.cpp")
+    "src/Registry.cpp"
+	"src/Registry.h")
 
 set(all_source_files
     ${precompiled_header}
