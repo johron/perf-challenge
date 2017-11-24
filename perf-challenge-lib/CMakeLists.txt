@@ -18,4 +18,4 @@ source_group("Source\\Precompiled" FILES ${precompiled_header})
 set_target_properties(${project_name} PROPERTIES FOLDER "Perf-Challenge")
 set_target_properties(${project_name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${precompiled_header})
 
-#cotire(${project_name})
+cotire(${project_name})
