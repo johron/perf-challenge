@@ -4,6 +4,7 @@ set(precompiled_header
     "src/precompiled/stdafx.h")
 
 set(root_files
+	"src/ISolver.h"
     "src/Registry.cpp"
 	"src/Registry.h")
 

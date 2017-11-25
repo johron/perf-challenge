@@ -6,10 +6,11 @@ set(precompiled_header
     "src/precompiled/stdafx.h")
 
 set(script_files 
+	"src/participants/Participants.h"
 	"Participants.cmake")
 
 set(root_files
-    "src/main.cpp")
+	"src/main.cpp")
 
 set(all_source_files
 	${script_files}

@@ -1,10 +1,14 @@
 #pragma once
+#include "ISolver.h"
 
 namespace Perf {
-	class ParticipantRegistry {
+	class Registry {
 	public:
-		ParticipantRegistry() = default;
-		~ParticipantRegistry() = default;
+		Registry() = default;
+		~Registry() = default;
 
+		void addParticipant(const std::string& name, std::unique_ptr<ISolver<bool, std::string>> solver) { }
+
+		const std::vector<std::unique_ptr<ISolver<bool, std::string>>>& GetEntries() const { }
 	};
 }

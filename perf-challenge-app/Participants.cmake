@@ -19,3 +19,34 @@ foreach(dir ${subdirs})
 		source_group("Source\\Participants\\${dir}" FILES "${file}")
 	endforeach()
 endforeach()
+
+set(registry_file "${file_prefix}/Participants.h")
+file(WRITE ${registry_file} 
+"// ====================================================
+// THIS CODE IS GENERATED - PLEASE DO NOT MANUALLY EDIT
+// ====================================================
+#pragma once 
+#include \"../../../perf-challenge-lib/src/Registry.h\"\n\n")
+
+foreach(dir ${subdirs})
+	file(APPEND ${registry_file} 
+"#include \"participants/${dir}/Implementation.h\"\n")
+endforeach()
+
+file(APPEND ${registry_file}
+"
+namespace Perf {
+	std::unique_ptr<Perf::Registry> RegisterParticipants() {
+		auto registry = std::make_unique<Perf::Registry>();\n")
+
+foreach(dir ${subdirs})
+	file(APPEND ${registry_file} 
+"		registry->addParticipant(\"${dir}\", std::make_unique<${dir}::Implementation>());\n")
+endforeach()
+
+file(APPEND ${registry_file}
+"		return std::move(registry);
+	}
+}")
+
+
