@@ -6,6 +6,12 @@
 #include "../../perf-challenge-lib/src/Registry.h"
 #include "../../perf-challenge-lib/src/ISolver.h"
 
+// ToDo:
+// * Generators for test data
+// * Result printers (file/log)
+// * Dummy/Naive solution
+
+
 int main(int argc, char** argv) {
 	const auto registry = Perf::RegisterParticipants<Perf::ISolver<bool, std::string>>();
 	const auto testData = Perf::CreateTestDataProvider<Perf::TestData<bool, std::string>>();
