@@ -22,9 +22,9 @@ endforeach()
 
 set(registry_file "${file_prefix}/Participants.h")
 file(WRITE ${registry_file} 
-"// ====================================================
-// THIS CODE IS GENERATED - PLEASE DO NOT MANUALLY EDIT
-// ====================================================
+"// ===================================================
+// THIS CODE IS GENERATED - PLEASE DO NOT EDIT BY HAND
+// ===================================================
 #pragma once 
 #include \"../../../perf-challenge-lib/src/Registry.h\"\n\n")
 

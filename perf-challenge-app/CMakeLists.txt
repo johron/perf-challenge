@@ -10,6 +10,9 @@ set(script_files
 	"Participants.cmake")
 
 set(root_files
+	"src/TestData.h"
+	"src/TestData_Sample_01.h"
+	"src/TestRunner.h"
 	"src/main.cpp")
 
 set(all_source_files

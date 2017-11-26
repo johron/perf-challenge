@@ -4,16 +4,16 @@
 namespace Perf {
 	template <typename SolverType>
 	class Registry {
-		using SolverStorage = std::unordered_map<std::string, std::unique_ptr<SolverType>>;
+		using SolverStorage = std::vector<std::shared_ptr<SolverType>>;
 	public:
 		Registry() = default;
 		~Registry() = default;
 
-		void addParticipant(std::unique_ptr<SolverType> solver) { 
-			mStorage[solver->GetName()] = std::move(solver);
+		void addParticipant(std::shared_ptr<SolverType> solver) { 
+			mStorage.push_back(solver);
 		}
 
-		const SolverStorage& GetEntries() const { 
+		const SolverStorage& GetSolvers() const { 
 			return mStorage;
 		}
 
