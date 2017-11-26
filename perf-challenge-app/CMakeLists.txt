@@ -10,11 +10,14 @@ set(script_files
 	"Participants.cmake")
 
 set(data_files
-	"data/sample_file_01.txt"
-	"data/sample_file_02.txt"
-	"data/sample_file_03.txt"
-	"data/sample_file_04.txt"
-	"data/sample_file_05.txt")
+	"data/sample_file_001.txt"
+	"data/sample_file_002.txt"
+	"data/sample_file_003.txt"
+	"data/sample_file_004.txt"
+	"data/sample_file_005.txt"
+	"data/sample_file_006.txt"
+	"data/sample_file_007.txt"
+	"data/sample_file_008.txt")
 
 set(root_files
 	"src/TimeUnit.h"

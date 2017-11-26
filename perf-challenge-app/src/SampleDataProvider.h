@@ -8,10 +8,27 @@ namespace Perf {
 	class SampleDataProvider : public ITestDataProvider<TestDataType> {
 	public:
 		virtual std::vector<TestDataType> GetData() const override {
-			return { 
-				{ false, "example_01.txt" },
-				{ false, "example_02.txt" },
-				{ true, "example_03.txt" }};
+			return {
+				{ true, "data/sample_file_001.txt" }, 
+				{ false, "data/sample_file_002.txt" },
+				{ false, "data/sample_file_003.txt" },
+				{ true, "data/sample_file_004.txt" },
+				{ true, "data/sample_file_005.txt" },
+				{ true, "data/sample_file_006.txt" },
+				{ false, "data/sample_file_007.txt" },
+				{ true, "data/sample_file_008.txt" }
+			};
 		}
 	};
 }
+
+
+
+
+
+
+
+
+
+
+
