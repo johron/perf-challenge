@@ -4,7 +4,12 @@ set(precompiled_header
     "src/precompiled/stdafx.h")
 
 set(root_files
-    "src/Empty.cpp")
+	"src/ISolver.h"
+	"src/ITestDataProvider.h"
+    "src/Empty.cpp"
+	"src/Registry.h"
+	"src/TestData.h"
+	"src/TimedSolver.h")
 
 set(all_source_files
     ${precompiled_header}
@@ -18,4 +23,4 @@ source_group("Source\\Precompiled" FILES ${precompiled_header})
 set_target_properties(${project_name} PROPERTIES FOLDER "Perf-Challenge")
 set_target_properties(${project_name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${precompiled_header})
 
-#cotire(${project_name})
+cotire(${project_name})

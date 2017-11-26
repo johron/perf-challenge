@@ -5,5 +5,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Predefined Targets")
 set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "Autogen Targets")
 
+include("scripts/cmake/cotire.cmake")
+
 add_subdirectory("perf-challenge-lib")
 add_subdirectory("perf-challenge-app")

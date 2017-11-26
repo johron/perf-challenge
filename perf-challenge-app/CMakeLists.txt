@@ -1,21 +1,51 @@
 set(project_name "perf-challenge-app")
 
+include("Participants.cmake")
+
 set(precompiled_header
     "src/precompiled/stdafx.h")
 
+set(script_files 
+	"src/participants/Participants.h"
+	"Participants.cmake")
+
+set(data_files
+	"data/sample_file_001.txt"
+	"data/sample_file_002.txt"
+	"data/sample_file_003.txt"
+	"data/sample_file_004.txt"
+	"data/sample_file_005.txt"
+	"data/sample_file_006.txt"
+	"data/sample_file_007.txt"
+	"data/sample_file_008.txt")
+
 set(root_files
-    "src/Empty.cpp")
+	"src/TimeUnit.h"
+	"src/DataGenerator.h"
+	"src/DataProvider.h"
+	"src/SampleDataProvider.h"
+	"src/ResultStorage.h"
+	"src/ResultPrinter.h"
+	"src/TestRunner.h"
+	"src/Main.cpp")
 
 set(all_source_files
+	${script_files}
+	${data_files}
     ${precompiled_header}
+	${participant_files}
     ${root_files})
 
-add_executable(${project_name} WIN32 MACOSX_BUNDLE ${all_source_files})
+add_executable(${project_name} MACOSX_BUNDLE ${all_source_files})
 
+target_link_libraries(${project_name} "perf-challenge-lib")
+
+source_group("Data" FILES ${data_files})
+source_group("Scripts" FILES ${script_files})
 source_group("Source" FILES ${root_files})
 source_group("Source\\Precompiled" FILES ${precompiled_header})
 
 set_target_properties(${project_name} PROPERTIES FOLDER "Perf-Challenge")
 set_target_properties(${project_name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${precompiled_header})
 
-#cotire(${project_name})
+cotire(${project_name})
