@@ -1,8 +1,30 @@
 #pragma once
+#include <assert.h>
 
 namespace Perf {
-	void GenerateData(uint32_t itemCount, bool containDuplicates, const std::string& filename) {
-		
+	void WriteFile(const std::vector<std::string>& items, const std::string& filename) {
+		std::fstream file;
+		file.open(filename, std::fstream::out);
+		for (const auto& item : items) {
+			file << item;
+		}
+		file.close();
+	}
+
+	void InsertDuplicate(std::vector<std::string>& dataOut) {
+		assert(dataOut.size() > 1);
+		auto original = std::rand() % dataOut.size();
+		auto duplicate = std::rand() % dataOut.size();
+
+		while (original == duplicate) {
+			duplicate = std::rand() % dataOut.size();
+		}
+
+		dataOut[duplicate] = dataOut[original];
+	}
+
+	void GenerateSequential(uint32_t itemCount, bool containDuplicates, const std::string& filename) {
+
 		std::vector<std::string> data;
 		data.reserve(itemCount);
 
@@ -24,15 +46,38 @@ namespace Perf {
 			data.push_back(str);
 		}
 
-		std::random_shuffle(data.begin(), data.end());
-
-		std::fstream file;
-		file.open(filename, std::fstream::out);
-		
-		for (const auto& item : data) {
-			file << item;
+		if (containDuplicates) {
+			InsertDuplicate(data);
 		}
 
-		file.close();
+		std::random_shuffle(data.begin(), data.end());
+
+		WriteFile(data, filename);
+	}
+
+	void GenerateRandomized(uint32_t itemCount, bool containDuplicates, const std::string& filename) {
+		std::unordered_set<std::string> data;
+
+		auto remaining = itemCount;
+		while (remaining > 0) {
+			std::string str = "______\n";
+			str[0] = 'A' + std::rand() % 26;
+			str[1] = 'A' + std::rand() % 26;
+			str[2] = 'A' + std::rand() % 26;
+			str[3] = '0' + std::rand() % 10;
+			str[4] = '0' + std::rand() % 10;
+			str[5] = '0' + std::rand() % 10;
+		
+			if (data.insert(str).second) {
+				--remaining;
+			}
+		}
+
+		std::vector<std::string> orderedData(data.begin(), data.end());
+		if (containDuplicates) {
+			InsertDuplicate(orderedData);
+		}
+
+		WriteFile(orderedData, filename);
 	}
 }

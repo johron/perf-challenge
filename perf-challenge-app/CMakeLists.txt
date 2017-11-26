@@ -9,6 +9,13 @@ set(script_files
 	"src/participants/Participants.h"
 	"Participants.cmake")
 
+set(data_files
+	"data/sample_file_01.txt"
+	"data/sample_file_02.txt"
+	"data/sample_file_03.txt"
+	"data/sample_file_04.txt"
+	"data/sample_file_05.txt")
+
 set(root_files
 	"src/TimeUnit.h"
 	"src/DataGenerator.h"
@@ -17,10 +24,11 @@ set(root_files
 	"src/ResultStorage.h"
 	"src/ResultPrinter.h"
 	"src/TestRunner.h"
-	"src/main.cpp")
+	"src/Main.cpp")
 
 set(all_source_files
 	${script_files}
+	${data_files}
     ${precompiled_header}
 	${participant_files}
     ${root_files})
@@ -29,6 +37,7 @@ add_executable(${project_name} MACOSX_BUNDLE ${all_source_files})
 
 target_link_libraries(${project_name} "perf-challenge-lib")
 
+source_group("Data" FILES ${data_files})
 source_group("Scripts" FILES ${script_files})
 source_group("Source" FILES ${root_files})
 source_group("Source\\Precompiled" FILES ${precompiled_header})
