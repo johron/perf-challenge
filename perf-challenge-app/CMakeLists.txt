@@ -11,8 +11,10 @@ set(script_files
 
 set(root_files
 	"src/TimeUnit.h"
-	"src/TestData.h"
-	"src/TestData_Sample_01.h"
+	"src/DataProvider.h"
+	"src/SampleDataProvider.h"
+	"src/ResultStorage.h"
+	"src/ResultPrinter.h"
 	"src/TestRunner.h"
 	"src/main.cpp")
 

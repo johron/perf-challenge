@@ -1,5 +1,5 @@
 #pragma once
-#include "TestData_Sample_01.h"
+#include "SampleDataProvider.h"
 
 namespace Perf {
 	template <typename TestDataType>

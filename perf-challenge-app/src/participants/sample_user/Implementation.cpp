@@ -2,7 +2,7 @@
 
 namespace sample_user {
 	bool Implementation::Solve(const std::string& data) {
-		std::this_thread::sleep_for(std::chrono::milliseconds(30));
+		std::this_thread::sleep_for(std::chrono::milliseconds(230));
 		return false;
 	}
 
