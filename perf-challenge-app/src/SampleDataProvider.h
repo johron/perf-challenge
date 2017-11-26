@@ -16,7 +16,9 @@ namespace Perf {
 				{ true, "data/sample_file_005.txt" },
 				{ true, "data/sample_file_006.txt" },
 				{ false, "data/sample_file_007.txt" },
-				{ true, "data/sample_file_008.txt" }
+				{ true, "data/sample_file_008.txt" },
+				{ false, "data/sample_file_009.txt" },
+				{ true, "data/sample_file_010.txt" }
 			};
 		}
 	};

@@ -13,14 +13,11 @@ namespace Perf {
 
 	void InsertDuplicate(std::vector<std::string>& dataOut) {
 		assert(dataOut.size() > 1);
-		auto original = std::rand() % dataOut.size();
-		auto duplicate = std::rand() % dataOut.size();
-
-		while (original == duplicate) {
-			duplicate = std::rand() % dataOut.size();
-		}
-
-		dataOut[duplicate] = dataOut[original];
+		const auto offsetRange = std::max(static_cast<int>(dataOut.size() * 0.15f), 1);
+		const auto indexBegin = std::rand() % offsetRange;
+		const auto indexEnd = dataOut.size() - 1 - indexBegin;
+		assert(indexBegin != indexEnd);
+		dataOut[indexBegin] = dataOut[indexEnd];
 	}
 
 	void GenerateSequential(uint32_t itemCount, bool containDuplicates, const std::string& filename) {
