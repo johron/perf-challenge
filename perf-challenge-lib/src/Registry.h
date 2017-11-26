@@ -2,13 +2,22 @@
 #include "ISolver.h"
 
 namespace Perf {
+	template <typename SolverType>
 	class Registry {
+		using SolverStorage = std::unordered_map<std::string, std::unique_ptr<SolverType>>;
 	public:
 		Registry() = default;
 		~Registry() = default;
 
-		void addParticipant(const std::string& name, std::unique_ptr<ISolver<bool, std::string>> solver) { }
+		void addParticipant(std::unique_ptr<SolverType> solver) { 
+			mStorage[solver->GetName()] = std::move(solver);
+		}
 
-		const std::vector<std::unique_ptr<ISolver<bool, std::string>>>& GetEntries() const { }
+		const SolverStorage& GetEntries() const { 
+			return mStorage;
+		}
+
+	private:
+		SolverStorage mStorage;
 	};
 }

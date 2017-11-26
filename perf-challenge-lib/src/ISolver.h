@@ -7,6 +7,9 @@ namespace Perf {
 		ISolver() = default;
 		virtual ~ISolver() = default;
 
-		virtual ReturnType Solve(InputType&& data) = 0;
+		virtual std::string GetName() const = 0;
+		virtual ReturnType Solve(const InputType& data) = 0;
 	};
+
+	using TGA_Solver = ISolver<bool, std::string>;
 }

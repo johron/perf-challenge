@@ -36,12 +36,13 @@ endforeach()
 file(APPEND ${registry_file}
 "
 namespace Perf {
-	std::unique_ptr<Perf::Registry> RegisterParticipants() {
-		auto registry = std::make_unique<Perf::Registry>();\n")
+	template <typename SolverType>
+	std::unique_ptr<Perf::Registry<SolverType>> RegisterParticipants() {
+		auto registry = std::make_unique<Perf::Registry<SolverType>>();\n")
 
 foreach(dir ${subdirs})
 	file(APPEND ${registry_file} 
-"		registry->addParticipant(\"${dir}\", std::make_unique<${dir}::Implementation>());\n")
+"		registry->addParticipant(std::make_unique<${dir}::Implementation>());\n")
 endforeach()
 
 file(APPEND ${registry_file}

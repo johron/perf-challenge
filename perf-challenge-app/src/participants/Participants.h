@@ -8,10 +8,11 @@
 #include "participants/sample_user/Implementation.h"
 
 namespace Perf {
-	std::unique_ptr<Perf::Registry> RegisterParticipants() {
-		auto registry = std::make_unique<Perf::Registry>();
-		registry->addParticipant("johan_ronnkvist", std::make_unique<johan_ronnkvist::Implementation>());
-		registry->addParticipant("sample_user", std::make_unique<sample_user::Implementation>());
+	template <typename SolverType>
+	std::unique_ptr<Perf::Registry<SolverType>> RegisterParticipants() {
+		auto registry = std::make_unique<Perf::Registry<SolverType>>();
+		registry->addParticipant(std::make_unique<johan_ronnkvist::Implementation>());
+		registry->addParticipant(std::make_unique<sample_user::Implementation>());
 		return std::move(registry);
 	}
 }
