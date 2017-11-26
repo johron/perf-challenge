@@ -4,17 +4,14 @@
 
 namespace Perf {
 	using TestDataType = TestData<bool, std::string>;
-	
+
 	class SampleDataProvider : public ITestDataProvider<TestDataType> {
 	public:
 		virtual std::vector<TestDataType> GetData() const override {
-			std::vector<TestDataType> data;
-
-			data.push_back(TestData<bool, std::string>(false, "example_01.txt"));
-			data.push_back(TestData<bool, std::string>(false, "example_02.txt"));
-			data.push_back(TestData<bool, std::string>(true, "example_03.txt"));
-	
-			return std::move(data);
+			return { 
+				{ false, "example_01.txt" },
+				{ false, "example_02.txt" },
+				{ true, "example_03.txt" }};
 		}
 	};
 }

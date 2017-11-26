@@ -6,9 +6,10 @@ set(precompiled_header
 set(root_files
 	"src/ISolver.h"
 	"src/ITestDataProvider.h"
-    "src/Registry.cpp"
+    "src/Empty.cpp"
 	"src/Registry.h"
-	"src/TestData.h")
+	"src/TestData.h"
+	"src/TimedSolver.h")
 
 set(all_source_files
     ${precompiled_header}

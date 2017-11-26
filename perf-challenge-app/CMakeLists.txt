@@ -10,6 +10,7 @@ set(script_files
 	"Participants.cmake")
 
 set(root_files
+	"src/TimeUnit.h"
 	"src/TestData.h"
 	"src/TestData_Sample_01.h"
 	"src/TestRunner.h"
