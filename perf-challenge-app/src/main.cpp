@@ -1,6 +1,7 @@
 #include "participants/Participants.h"
 
 #include "DataProvider.h"
+#include "DataGenerator.h"
 #include "TestRunner.h"
 #include "ResultStorage.h"
 #include "ResultPrinter.h"
@@ -14,15 +15,19 @@
 
 
 int main(int argc, char** argv) {
-	using TimeType = std::chrono::milliseconds;
+	Perf::GenerateData(10000, false, "sample_file_001.txt");
 
-	const auto registry = Perf::RegisterParticipants<Perf::ISolver<bool, std::string>>();
-	const auto testData = Perf::CreateTestDataProvider<Perf::TestData<bool, std::string>>();
-	const auto testRunner = std::make_unique<Perf::TestRunner<bool, std::string, TimeType>>(registry->GetSolvers(), testData->GetData());
-
-	const auto results = testRunner->Run();
-	Perf::PrintResults<TimeType>(results);
-
-	getchar();
+// 	using TimeType = std::chrono::milliseconds;
+// 	using ReturnType = bool;
+// 	using InputType = std::string;
+// 
+// 	const auto registry = Perf::RegisterParticipants<Perf::ISolver<ReturnType, InputType>>();
+// 	const auto testData = Perf::CreateTestDataProvider<Perf::TestData<ReturnType, InputType>>();
+// 	const auto testRunner = std::make_unique<Perf::TestRunner<ReturnType, InputType, TimeType>>(registry->GetSolvers(), testData->GetData());
+// 
+// 	const auto results = testRunner->Run();
+// 	Perf::PrintResults<TimeType>(results);
+// 
+// 	getchar();
 	return 0;
 }

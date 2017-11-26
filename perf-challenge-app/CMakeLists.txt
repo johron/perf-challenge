@@ -11,6 +11,7 @@ set(script_files
 
 set(root_files
 	"src/TimeUnit.h"
+	"src/DataGenerator.h"
 	"src/DataProvider.h"
 	"src/SampleDataProvider.h"
 	"src/ResultStorage.h"
