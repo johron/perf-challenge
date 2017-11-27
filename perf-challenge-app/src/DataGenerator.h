@@ -21,7 +21,7 @@ namespace Perf {
 	}
 
 	void GenerateSequential(uint32_t itemCount, bool containDuplicates, const std::string& filename) {
-
+		std::cout << "Generating sequential data: " << filename << " (" << itemCount << ")\n";
 		std::vector<std::string> data;
 		data.reserve(itemCount);
 
@@ -53,6 +53,7 @@ namespace Perf {
 	}
 
 	void GenerateRandomized(uint32_t itemCount, bool containDuplicates, const std::string& filename) {
+		std::cout << "Generating randomized data: " << filename << " (" << itemCount << ")\n";
 		std::unordered_set<std::string> data;
 
 		auto remaining = itemCount;

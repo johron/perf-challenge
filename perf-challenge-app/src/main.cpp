@@ -22,7 +22,7 @@ void GenerateSampleData() {
 	Perf::GenerateRandomized(1 << 20, true, "data/sample_file_010.txt");
 }
 
-int main(int argc, char** argv) {
+void RunRegisteredSolvers() {
 	using TimeType = std::chrono::milliseconds;
 	using ReturnType = bool;
 	using InputType = std::string;
@@ -33,7 +33,16 @@ int main(int argc, char** argv) {
 
 	const auto results = testRunner->Run();
 	Perf::PrintResults<TimeType>(results);
+}
 
-	getchar();
+int main(int argc, char** argv) {
+	if (argc == 2 && strcmp(argv[1], "--generate") == 0) {
+		GenerateSampleData();
+	} else {
+		RunRegisteredSolvers();
+	}
+
+
+
 	return 0;
 }
