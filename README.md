@@ -17,15 +17,18 @@ Your implementation will return a bool, indicating if the file contained duplica
 #### Setup
 In order to complete setup for this repository
 * Clone or download this repository (https://github.com/johron/perf-challenge)
-* In the perf-challenge-app/src/participants folder, duplicate the 'reference_user' folder and rename it to 'firstname_lastname' (using your own name).
-* open the files 'Implementation.h/.cpp' and rename the namespace from 'reference_user' to 'firstname_lastname' like above. These have to match.
-* Ensure you have CMake 3.1 or later installed
-* In the project directory run the following CMake command in order to generate the solution. Solution files are generated in the .build folder
+* In the perf-challenge-app/src/participants folder, duplicate the `reference_user` folder and rename it to `firstname_lastname` (using your own name).
+* open the files `Implementation.h/.cpp` and rename the namespace from `reference_user` to `firstname_lastname` like above. These have to match.
+* Run the following command in the project folder to generate the solution files     
+ * Ensure you have CMake 3.1 or later installed
+ * `c:\dev\perf-challenge> cmake . -B.build`
+ * Solution files are generated in the .build folder
 
- ´´´
- cmake . -B.build
- ´´´
-
-
-### Remember
+#### Remember
+* Set perf-challenge-app to the startup project
 * Set your working directory to the perf-challenge-app folder (where the data folder can be found)
+* If everything has been setup correctly, you should be able to run the code and see the reference user attempt to solve the problem.
+
+#### Failing criteria
+* Your implementation does not compile
+* Your implementation crashes runtime
