@@ -9,10 +9,10 @@ You will be required to implement a solution to determine if a file contains dup
 * The goal is to determine the presence of duplicates as quickly as possible
 
 #### Input parameters
-Your implementation will receive a const std::string& filename as input.
+Your implementation will receive a `const std::string&` filename as input.
 
 #### Return value
-Your implementation will return a bool, indicating if the file contained duplicates
+Your implementation will return a `bool`, indicating if the file contained duplicates
 
 #### Setup
 In order to complete setup for this repository
