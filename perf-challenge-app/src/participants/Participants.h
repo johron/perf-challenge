@@ -4,13 +4,13 @@
 #pragma once 
 #include "../../../perf-challenge-lib/src/Registry.h"
 
-#include "participants/sample_user/Implementation.h"
+#include "participants/reference_user/Implementation.h"
 
 namespace Perf {
 	template <typename SolverType>
 	std::unique_ptr<Perf::Registry<SolverType>> RegisterParticipants() {
 		auto registry = std::make_unique<Perf::Registry<SolverType>>();
-		registry->addParticipant(std::make_unique<sample_user::Implementation>());
+		registry->addParticipant(std::make_unique<reference_user::Implementation>());
 		return std::move(registry);
 	}
 }

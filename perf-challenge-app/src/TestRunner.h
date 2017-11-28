@@ -34,7 +34,7 @@ namespace Perf {
 			const auto result = timedSolver->Solve(data.mInput);
 			if (result.first == data.mResult) {
 				mResults->AddResult(solver->GetName(), static_cast<uint32_t>(result.second.count()));
-				std::cout << " - " << data.mInput << " (success)\n";
+				std::cout << " - " << data.mInput << " (success, " << result.second.count()  << TimeUnit<TimeType>::Get() <<  ")\n";
 			} else {
 				mResults->Disqualify(solver->GetName());
 				std::cout << " - " << data.mInput << " (disqualified)\n";
