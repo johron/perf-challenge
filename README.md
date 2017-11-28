@@ -22,7 +22,9 @@ In order to complete setup for this repository
 * Ensure you have CMake 3.1 or later installed
 * In the project directory run the following CMake command in order to generate the solution. Solution files are generated in the .build folder
 
- ´´´cmake . -B.build´´´
+ ´´´
+ cmake . -B.build
+ ´´´
 
 
 ### Remember
