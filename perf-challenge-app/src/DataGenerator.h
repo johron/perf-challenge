@@ -11,6 +11,8 @@ namespace Perf {
 		file.close();
 	}
 
+	// This code was just used to generate example data, don't assume the real 
+	// datasets will have this structure. 
 	void InsertDuplicate(std::vector<std::string>& dataOut) {
 		assert(dataOut.size() > 1);
 		const auto offsetRange = std::max(static_cast<int>(dataOut.size() * 0.15f), 1);
