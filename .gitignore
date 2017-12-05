@@ -32,3 +32,4 @@
 *.app
 
 \.build/
+perf-challenge-app/src/participants/
