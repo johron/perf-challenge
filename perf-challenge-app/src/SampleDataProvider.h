@@ -22,13 +22,29 @@ namespace Perf {
 			};
 		}
 	};
+
+
+	class RealDataProvider : public ITestDataProvider<TestDataType> {
+		virtual std::vector<TestDataType> GetData() const override {
+			std::vector<TestDataType> data;
+			data.reserve(100);
+			
+			for (int i=0; i < 32; ++i) {
+				data.push_back({ i % 2 == 0, "data/small_files/file_" + std::to_string(i) + ".txt" });
+			}
+
+			for (int i=0; i < 16; ++i) {
+				data.push_back({ i % 2 == 0, "data/medium_files/file_" + std::to_string(i) + ".txt" });
+			}
+
+			for (int i=0; i < 8; ++i) {
+				data.push_back({ i % 2 == 0, "data/large_files/file_" + std::to_string(i) + ".txt" });
+			}
+
+			return data;
+		}
+	};
 }
-
-
-
-
-
-
 
 
 

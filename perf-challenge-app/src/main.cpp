@@ -10,16 +10,20 @@
 #include "../../perf-challenge-lib/src/ISolver.h"
 
 void GenerateSampleData() {
-	Perf::GenerateRandomized(1 << 13, true, "data/sample_file_001.txt");
-	Perf::GenerateRandomized(1 << 14, false, "data/sample_file_002.txt");
-	Perf::GenerateRandomized(1 << 15, false, "data/sample_file_003.txt");
-	Perf::GenerateRandomized(1 << 16, true, "data/sample_file_004.txt");
-	Perf::GenerateRandomized(1 << 17, true, "data/sample_file_005.txt");
-	Perf::GenerateRandomized(1 << 18, true, "data/sample_file_006.txt");
-	Perf::GenerateRandomized(1 << 19, false, "data/sample_file_007.txt");
-	Perf::GenerateRandomized(1 << 20, true, "data/sample_file_008.txt");
-	Perf::GenerateRandomized(1 << 21, false, "data/sample_file_009.txt");
-	Perf::GenerateRandomized(1 << 22, true, "data/sample_file_010.txt");
+	// 128k files
+	for (int i=0; i < 32; ++i) { 
+		Perf::GenerateRandomized(1 << 14, i % 2 == 0, "data/small_files/file_" + std::to_string(i) + ".txt");
+	}
+
+	// 8mb files
+	for (int i=0; i < 16; ++i) {
+		Perf::GenerateRandomized(1 << 20, i % 2 == 0, "data/medium_files/file_" + std::to_string(i) + ".txt");
+	}
+
+	// 32mb files
+	for (int i=0; i < 8; ++i) {
+		Perf::GenerateRandomized(1 << 22, i % 2 == 0, "data/large_files/file_" + std::to_string(i) + ".txt");
+	}
 }
 
 void RunRegisteredSolvers() {

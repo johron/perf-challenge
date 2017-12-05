@@ -9,15 +9,7 @@ set(script_files
 	"src/participants/Participants.h"
 	"Participants.cmake")
 
-set(data_files
-	"data/sample_file_001.txt"
-	"data/sample_file_002.txt"
-	"data/sample_file_003.txt"
-	"data/sample_file_004.txt"
-	"data/sample_file_005.txt"
-	"data/sample_file_006.txt"
-	"data/sample_file_007.txt"
-	"data/sample_file_008.txt")
+file(GLOB_RECURSE data_files "data/*.txt")
 
 set(root_files
 	"src/TimeUnit.h"
