@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.1)
 project("perf-challenge" VERSION 1.0 LANGUAGES C CXX)
 
+include("scripts/cmake/compiler_features.cmake")
+include("scripts/cmake/cotire.cmake")
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Predefined Targets")
 set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "Autogen Targets")
-
-include("scripts/cmake/cotire.cmake")
 
 add_subdirectory("perf-challenge-lib")
 add_subdirectory("perf-challenge-app")

@@ -1,8 +1,14 @@
 #pragma once
 #include <assert.h>
 
+#include <random>
+#include <algorithm>
+#include <filesystem>
+
 namespace Perf {
 	void WriteFile(const std::vector<std::string>& items, const std::string& filename) {
+		std::filesystem::create_directories(std::filesystem::path(filename).remove_filename());
+
 		std::fstream file;
 		file.open(filename, std::fstream::out);
 		for (const auto& item : items) {
@@ -49,7 +55,10 @@ namespace Perf {
 			InsertDuplicate(data);
 		}
 
-		std::random_shuffle(data.begin(), data.end());
+		std::random_device rd;
+		std::mt19937 g(rd());
+
+		std::shuffle(data.begin(), data.end(), g);
 
 		WriteFile(data, filename);
 	}
