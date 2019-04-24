@@ -31,9 +31,9 @@ In order to complete setup for this repository
 * `c:\dev\perf-challenge> cmake . -B.build`
 * Solution files are generated in the .build folder
 * Open `c:\dev\perf-challenge\.build\perf-challange.sln` in Visual Studio
-* Set perf-challenge-app to the startup project
-* In project properties, set your working directory to the perf-challenge-app folder (where the data folder can be found)
-* If everything has been setup correctly, you should be able to run the code and see the reference user attempt to solve the problem....with questionable efficiency.
+* Set `perf-challenge-app` to the startup project
+* Run your program in **Release** the first time to generate the test files.
+* If everything has been setup correctly, you should be able to run the code and see the reference user attempt to solve the problem... with questionable efficiency.
 * In Visual Studio, open `perf-challenge-app/Source/Participants/firstname_lastname/Implementation.cpp` and get started. Happy optimizing!
 
 --------------
@@ -46,12 +46,6 @@ In order to complete setup for this repository
 --------------
 
 #### Questions & Answers
-*Q: On what hardware will final measurements be made?*
->A: The following hardware
-> * 7th Generation Intel(R) Core(TM) i7-7700HQ Quad Core Processor
-> * 16GB, DDR4, 2400MHz
-> * 512GB PCIe Solid State Drive
-
  *Q: Will timing include reading from disk?*
 > A: Yes
 

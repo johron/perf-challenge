@@ -40,9 +40,10 @@ void RunRegisteredSolvers() {
 }
 
 int main(int argc, char** argv) {
-	if (argc == 2 && strcmp(argv[1], "--generate") == 0) {
+	if (!std::filesystem::exists("data/")) {
 		GenerateSampleData();
-	} else {
+	}
+	else {
 		RunRegisteredSolvers();
 	}
 

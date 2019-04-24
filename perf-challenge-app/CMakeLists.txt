@@ -40,6 +40,4 @@ source_group("Source\\Precompiled" FILES ${precompiled_header})
 set_target_properties(${project_name} PROPERTIES FOLDER "Perf-Challenge")
 set_target_properties(${project_name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${precompiled_header})
 
-set_target_properties(${project_name} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
-
 cotire(${project_name})
