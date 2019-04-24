@@ -42,8 +42,7 @@ void RunRegisteredSolvers() {
 int main(int argc, char** argv) {
 	if (!std::filesystem::exists("data/")) {
 		GenerateSampleData();
-	}
-	else {
+	} else {
 		RunRegisteredSolvers();
 	}
 
