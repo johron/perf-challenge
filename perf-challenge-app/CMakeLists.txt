@@ -12,6 +12,7 @@ set(script_files
 file(GLOB_RECURSE data_files "data/*.txt")
 
 set(root_files
+	"src/Timer.h"
 	"src/TimeUnit.h"
 	"src/DataGenerator.h"
 	"src/DataProvider.h"
