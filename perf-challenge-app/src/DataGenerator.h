@@ -4,14 +4,23 @@
 #include <random>
 #include <algorithm>
 
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 namespace Perf {
 	void WriteFile(const std::vector<std::string>& items, const std::string& filename) {
-		std::fstream file;
-		file.open(filename, std::fstream::out);
+		FILE* fp = NULL;
+		fp = fopen(filename.c_str(), "wb");
+
+		char newline[2] = { 0x0d, 0x0a };
+
 		for (const auto& item : items) {
-			file << item;
+			fwrite(item.c_str(), 6, 1, fp);
+			fwrite(newline, 2, 1, fp);
 		}
-		file.close();
+
+		fclose(fp);
 	}
 
 	// This code was just used to generate example data, don't assume the real 
@@ -35,7 +44,7 @@ namespace Perf {
 		const auto startingIndex = (std::rand() * std::rand()) % (numberSpace - itemCount);
 
 		for (uint32_t i=0; i < itemCount; ++i) {
-			std::string str = "______\n";
+			std::string str = "______";
 			auto baseIndex = i + startingIndex;
 
 			str[0] = 'A' + (baseIndex % (26 * 26 * 26 * 1000)) / (26 * 26 * 1000);
