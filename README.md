@@ -1,4 +1,4 @@
-# King Performance Challenge - 2019
+# Performance Challenge - 2019
 
 #### Overview
 The challenge is to implement a solution to determine if a file contains duplicates of registration numbers.
