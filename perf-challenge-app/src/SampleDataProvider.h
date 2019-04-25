@@ -25,6 +25,10 @@ namespace Perf {
 
 
 	class RealDataProvider : public ITestDataProvider<TestDataType> {
+	public:
+		RealDataProvider() = default;
+		virtual ~RealDataProvider() = default;
+
 		virtual std::vector<TestDataType> GetData() const override {
 			std::vector<TestDataType> data;
 			data.reserve(100);
