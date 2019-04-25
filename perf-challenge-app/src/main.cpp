@@ -9,20 +9,22 @@
 #include "../../perf-challenge-lib/src/Registry.h"
 #include "../../perf-challenge-lib/src/ISolver.h"
 
+#include <fstream>
+
 void GenerateSampleData() {
 	// 128k files
 	for (int i=0; i < 32; ++i) { 
-		Perf::GenerateRandomized(1 << 14, i % 2 == 0, "data/small_files/file_" + std::to_string(i) + ".txt");
+		Perf::GenerateRandomized(1 << 14, i % 2 == 0, "small_file_" + std::to_string(i) + ".txt");
 	}
 
 	// 8mb files
 	for (int i=0; i < 16; ++i) {
-		Perf::GenerateRandomized(1 << 20, i % 2 == 0, "data/medium_files/file_" + std::to_string(i) + ".txt");
+		Perf::GenerateRandomized(1 << 20, i % 2 == 0, "medium_file_" + std::to_string(i) + ".txt");
 	}
 
 	// 32mb files
 	for (int i=0; i < 8; ++i) {
-		Perf::GenerateRandomized(1 << 22, i % 2 == 0, "data/large_files/file_" + std::to_string(i) + ".txt");
+		Perf::GenerateRandomized(1 << 22, i % 2 == 0, "large_file_" + std::to_string(i) + ".txt");
 	}
 }
 
@@ -41,7 +43,8 @@ void RunRegisteredSolvers() {
 
 int main(int argc, char** argv) {
 #ifdef NDEBUG
-	if (!std::filesystem::exists("data/"))
+	std::ifstream file("large_file_7.txt");
+	if (file.fail())
 		GenerateSampleData();
 	else
 #endif

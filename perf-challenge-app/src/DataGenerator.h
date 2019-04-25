@@ -3,12 +3,9 @@
 
 #include <random>
 #include <algorithm>
-#include <filesystem>
 
 namespace Perf {
 	void WriteFile(const std::vector<std::string>& items, const std::string& filename) {
-		std::filesystem::create_directories(std::filesystem::path(filename).remove_filename());
-
 		std::fstream file;
 		file.open(filename, std::fstream::out);
 		for (const auto& item : items) {
