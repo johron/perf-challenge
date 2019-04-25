@@ -4,10 +4,6 @@
 #include <random>
 #include <algorithm>
 
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
-
 namespace Perf {
 	void WriteFile(const std::vector<std::string>& items, const std::string& filename) {
 		FILE* fp = NULL;
