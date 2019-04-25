@@ -1,4 +1,4 @@
-# TGA Performance Challenge - 2017
+# King Performance Challenge - 2019
 
 ##### Overview
 The challenge is to implement a solution to determine if a file contains duplicates of registration numbers.
@@ -28,13 +28,14 @@ In order to complete setup for this repository
 * In `Implementation.h` change `GetName()` to return your name (lowercase for consistency please)
 * Ensure you have CMake 3.1 or later installed
 * Run the following command in the project folder to generate the solution files
-* `c:\dev\perf-challenge> cmake . -B.build`
-* Solution files are generated in the .build folder
-* Open `c:\dev\perf-challenge\.build\perf-challange.sln` in Visual Studio
-* Set `perf-challenge-app` to the startup project
+* Windows: `c:\dev\perf-challenge> cmake . -B_build`
+* Mac: `./generate_xcode_project.sh` 
+* Open the solution/project file that was generated in the _build folder.
+* Set `perf-challenge-app` to the startup project / active scheme
+* Mac: Product->Scheme->Edit Scheme->Options: Set Working Directory: $(BUILD_DIR)
 * Run your program in **Release** the first time to generate the test files.
 * If everything has been setup correctly, you should be able to run the code and see the reference user attempt to solve the problem... with questionable efficiency.
-* In Visual Studio, open `perf-challenge-app/Source/Participants/firstname_lastname/Implementation.cpp` and get started. Happy optimizing!
+* Open `perf-challenge-app/Source/Participants/firstname_lastname/Implementation.cpp` and get started. Happy optimizing!
 
 --------------
 
