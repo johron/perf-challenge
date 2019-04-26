@@ -69,9 +69,11 @@ namespace Perf {
 		std::cout << "Generating randomized data: " << filename << " (" << itemCount << ")\n";
 		std::unordered_set<std::string> data;
 
+		data.reserve(itemCount);
+
 		auto remaining = itemCount;
 		while (remaining > 0) {
-			std::string str = "______\n";
+			std::string str = "______";
 			str[0] = 'A' + std::rand() % 26;
 			str[1] = 'A' + std::rand() % 26;
 			str[2] = 'A' + std::rand() % 26;
