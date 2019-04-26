@@ -11,5 +11,5 @@ namespace Perf {
 		virtual ReturnType Solve(const InputType& data) = 0;
 	};
 
-	using TGA_Solver = ISolver<bool, std::string>;
+	using Solver = ISolver<bool, std::string>;
 }

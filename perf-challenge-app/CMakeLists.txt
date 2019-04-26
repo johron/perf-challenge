@@ -5,13 +5,14 @@ include("Participants.cmake")
 set(precompiled_header
     "src/precompiled/stdafx.h")
 
-set(script_files 
+set(script_files
 	"src/participants/Participants.h"
 	"Participants.cmake")
 
 file(GLOB_RECURSE data_files "data/*.txt")
 
 set(root_files
+	"src/Timer.h"
 	"src/TimeUnit.h"
 	"src/DataGenerator.h"
 	"src/DataProvider.h"
@@ -39,5 +40,7 @@ source_group("Source\\Precompiled" FILES ${precompiled_header})
 
 set_target_properties(${project_name} PROPERTIES FOLDER "Perf-Challenge")
 set_target_properties(${project_name} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT ${precompiled_header})
+
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
 cotire(${project_name})

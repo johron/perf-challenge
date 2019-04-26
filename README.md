@@ -1,6 +1,6 @@
-# TGA Performance Challenge - 2017
+# Performance Challenge - 2019
 
-##### Overview
+#### Overview
 The challenge is to implement a solution to determine if a file contains duplicates of registration numbers.
 
 * The file is guaranteed to exist, and contains one registration number per line
@@ -23,18 +23,19 @@ Your implementation will return a `bool`, indicating if the file contained dupli
 #### Setup
 In order to complete setup for this repository
 * Clone or download this repository (https://github.com/johron/perf-challenge)
-* In the perf-challenge-app/src/participants folder, duplicate the `reference_user` folder and rename it to `firstname_lastname` (using your own name).
+* In the `perf-challenge-app/src/participants` directory, duplicate the `reference_user` directory and rename it to `firstname_lastname` (using your own name).
 * open the files `Implementation.h/.cpp` and rename the namespace from `reference_user` to `firstname_lastname` like above. These have to match.
 * In `Implementation.h` change `GetName()` to return your name (lowercase for consistency please)
 * Ensure you have CMake 3.1 or later installed
-* Run the following command in the project folder to generate the solution files
-* `c:\dev\perf-challenge> cmake . -B.build`
-* Solution files are generated in the .build folder
-* Open `c:\dev\perf-challenge\.build\perf-challange.sln` in Visual Studio
-* Set perf-challenge-app to the startup project
-* In project properties, set your working directory to the perf-challenge-app folder (where the data folder can be found)
-* If everything has been setup correctly, you should be able to run the code and see the reference user attempt to solve the problem....with questionable efficiency.
-* In Visual Studio, open `perf-challenge-app/Source/Participants/firstname_lastname/Implementation.cpp` and get started. Happy optimizing!
+* Run the following command in the root directory to generate the solution/project files:
+    * **Windows:** `.\generate_vs_project.bat`
+    * **Mac:** `./generate_xcode_project.sh` 
+* Open the solution/project file that was generated in the `_build/` directory.
+* Set `perf-challenge-app` to the startup_project/active_scheme
+* **Mac Only:** Product->Scheme->Edit Scheme->Options: Set Working Directory: `$(BUILD_DIR)`
+* Run your program in **Release** the first time to generate the test files.
+* If everything has been setup correctly, you should be able to run the code and see the reference user attempt to solve the problem... with questionable efficiency.
+* Open `perf-challenge-app/Source/Participants/firstname_lastname/Implementation.cpp` and get started. Happy optimizing!
 
 --------------
 
@@ -46,12 +47,6 @@ In order to complete setup for this repository
 --------------
 
 #### Questions & Answers
-*Q: On what hardware will final measurements be made?*
->A: The following hardware
-> * 7th Generation Intel(R) Core(TM) i7-7700HQ Quad Core Processor
-> * 16GB, DDR4, 2400MHz
-> * 512GB PCIe Solid State Drive
-
  *Q: Will timing include reading from disk?*
 > A: Yes
 

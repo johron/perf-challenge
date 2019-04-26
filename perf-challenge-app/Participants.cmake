@@ -30,7 +30,7 @@ file(WRITE ${registry_file}
 
 foreach(dir ${subdirs})
 	file(APPEND ${registry_file} 
-"#include \"participants/${dir}/Implementation.h\"\n")
+"#include \"${dir}/Implementation.h\"\n")
 endforeach()
 
 file(APPEND ${registry_file}
